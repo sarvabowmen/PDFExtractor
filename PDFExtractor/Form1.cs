@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using iTextSharp;
+using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.parser;
+
 
 namespace PDFExtractor
 {
@@ -61,11 +64,21 @@ namespace PDFExtractor
 
         private void ExtractData(string fileName)
         {
+            var pdfHeight = 841;
+
+            System.util.RectangleJ rec = new System.util.RectangleJ(62, pdfHeight - 150, 112, 12);
+            PdfReader pdfReader = new PdfReader(fileName);
+            RenderFilter[] filter = { new RegionTextRenderFilter(rec) };
+            ITextExtractionStrategy textExtractionStrategy;
             StringBuilder sb = new StringBuilder();
 
-            PdfReader pdfReader = new PdfReader(fileName);
-            for (int page = 1; page <= pdfReader.NumberOfPages; page++) { }
+           
+            for (int page = 1; page <= pdfReader.NumberOfPages; page++) {
+               textExtractionStrategy = new FilteredTextRenderListener( new LocationTextExtractionStrategy(), filter);
+                sb.AppendLine(PdfTextExtractor.GetTextFromPage(pdfReader, page, textExtractionStrategy));
+            }
 
+            rtbExtractedText.Text += sb.ToString();
 
         }
     }

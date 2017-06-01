@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnFolderSearch = new System.Windows.Forms.Button();
             this.btnExtractData = new System.Windows.Forms.Button();
+            this.rtbExtractedText = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // txtFolderPath
@@ -70,11 +71,20 @@
             this.btnExtractData.UseVisualStyleBackColor = true;
             this.btnExtractData.Click += new System.EventHandler(this.btnExtractData_Click);
             // 
+            // rtbExtractedText
+            // 
+            this.rtbExtractedText.Location = new System.Drawing.Point(91, 175);
+            this.rtbExtractedText.Name = "rtbExtractedText";
+            this.rtbExtractedText.Size = new System.Drawing.Size(334, 96);
+            this.rtbExtractedText.TabIndex = 4;
+            this.rtbExtractedText.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 317);
+            this.Controls.Add(this.rtbExtractedText);
             this.Controls.Add(this.btnExtractData);
             this.Controls.Add(this.btnFolderSearch);
             this.Controls.Add(this.label1);
@@ -93,6 +103,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFolderSearch;
         private System.Windows.Forms.Button btnExtractData;
+        private System.Windows.Forms.RichTextBox rtbExtractedText;
     }
 }
 
