@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A30E9B7-CE10-41E2-B3FC-7681902605A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExtracterEngine</RootNamespace>
+    <AssemblyName>ExtracterEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.11\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tesseract, Version=3.0.2.0, Culture=neutral, PublicKeyToken=ebeb3d86bef60cbe, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tesseract.3.0.2.0\lib\net45\Tesseract.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\IExtractorEngine.cs" />
+    <Compile Include="ExtractorFactory.cs" />
+    <Compile Include="Extractor\OCRReadingEngine.cs" />
+    <Compile Include="Extractor\PDFExtractorEngine.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="x64\liblept172.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\libtesseract304.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\liblept172.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\libtesseract304.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="tessdata\configs\ambigs.train" />
+    <None Include="tessdata\configs\api_config" />
+    <None Include="tessdata\configs\bazaar" />
+    <None Include="tessdata\configs\bigram" />
+    <None Include="tessdata\configs\box.train" />
+    <None Include="tessdata\configs\box.train.stderr" />
+    <None Include="tessdata\configs\digits" />
+    <None Include="tessdata\configs\get.image" />
+    <None Include="tessdata\configs\hocr" />
+    <None Include="tessdata\configs\inter" />
+    <None Include="tessdata\configs\kannada" />
+    <None Include="tessdata\configs\linebox" />
+    <None Include="tessdata\configs\logfile" />
+    <None Include="tessdata\configs\lstm.train" />
+    <None Include="tessdata\configs\makebox" />
+    <None Include="tessdata\configs\Makefile.am" />
+    <None Include="tessdata\configs\pdf" />
+    <None Include="tessdata\configs\quiet" />
+    <None Include="tessdata\configs\rebox" />
+    <None Include="tessdata\configs\strokewidth" />
+    <None Include="tessdata\configs\tsv" />
+    <None Include="tessdata\configs\txt" />
+    <None Include="tessdata\configs\unlv" />
+    <None Include="tessdata\eng.user-patterns" />
+    <None Include="tessdata\eng.user-words" />
+    <None Include="tessdata\Makefile.am" />
+    <None Include="tessdata\pdf.ttf" />
+    <None Include="tessdata\tessconfigs\batch" />
+    <None Include="tessdata\tessconfigs\batch.nochop" />
+    <None Include="tessdata\tessconfigs\Makefile.am" />
+    <None Include="tessdata\tessconfigs\matdemo" />
+    <None Include="tessdata\tessconfigs\msdemo" />
+    <None Include="tessdata\tessconfigs\nobatch" />
+    <None Include="tessdata\tessconfigs\segdemo" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PDFExtractor
+namespace TextExtractor
 {
     static class Program
     {

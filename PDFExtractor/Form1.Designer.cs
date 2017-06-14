@@ -1,4 +1,4 @@
-﻿namespace PDFExtractor
+﻿namespace TextExtractor
 {
     partial class Form1
     {
@@ -33,6 +33,9 @@
             this.btnFolderSearch = new System.Windows.Forms.Button();
             this.btnExtractData = new System.Windows.Forms.Button();
             this.rtbExtractedText = new System.Windows.Forms.RichTextBox();
+            this.rbPDF = new System.Windows.Forms.RadioButton();
+            this.rbImage = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtFolderPath
@@ -79,11 +82,45 @@
             this.rtbExtractedText.TabIndex = 4;
             this.rtbExtractedText.Text = "";
             // 
+            // rbPDF
+            // 
+            this.rbPDF.AutoSize = true;
+            this.rbPDF.Location = new System.Drawing.Point(244, 27);
+            this.rbPDF.Name = "rbPDF";
+            this.rbPDF.Size = new System.Drawing.Size(46, 17);
+            this.rbPDF.TabIndex = 5;
+            this.rbPDF.TabStop = true;
+            this.rbPDF.Text = "PDF";
+            this.rbPDF.UseVisualStyleBackColor = true;
+            // 
+            // rbImage
+            // 
+            this.rbImage.AutoSize = true;
+            this.rbImage.Location = new System.Drawing.Point(313, 27);
+            this.rbImage.Name = "rbImage";
+            this.rbImage.Size = new System.Drawing.Size(54, 17);
+            this.rbImage.TabIndex = 6;
+            this.rbImage.TabStop = true;
+            this.rbImage.Text = "Image";
+            this.rbImage.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(118, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Select Extraction Type :";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 317);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.rbImage);
+            this.Controls.Add(this.rbPDF);
             this.Controls.Add(this.rtbExtractedText);
             this.Controls.Add(this.btnExtractData);
             this.Controls.Add(this.btnFolderSearch);
@@ -104,6 +141,9 @@
         private System.Windows.Forms.Button btnFolderSearch;
         private System.Windows.Forms.Button btnExtractData;
         private System.Windows.Forms.RichTextBox rtbExtractedText;
+        private System.Windows.Forms.RadioButton rbPDF;
+        private System.Windows.Forms.RadioButton rbImage;
+        private System.Windows.Forms.Label label2;
     }
 }
 

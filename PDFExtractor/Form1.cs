@@ -12,15 +12,21 @@ using iTextSharp;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
+using TextExtractor.ExtracterEngine;
 
 
-namespace PDFExtractor
+namespace TextExtractor
 {
     public partial class Form1 : Form
     {
         public string FolderPath { get; set; }
 
         public IList<string> Files { get; set; }
+
+        public enum ExtractionType { PDF =0, Image = 1 };
+
+        public ExtractionType ExtractionMethod { get; set; }
+
         public Form1()
         {
             InitializeComponent();
@@ -28,11 +34,13 @@ namespace PDFExtractor
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            rbPDF.Checked = true; 
         }
 
         private void btnFolderSearch_Click(object sender, EventArgs e)
         {
+            ExtractionMethod = GetExtrationMethod();
+
             using (FolderBrowserDialog fbd = new FolderBrowserDialog())
             {
                 DialogResult dr = fbd.ShowDialog();
@@ -64,22 +72,20 @@ namespace PDFExtractor
 
         private void ExtractData(string fileName)
         {
-            var pdfHeight = 841;
+                
+            
+            //rtbExtractedText.Text += sb.ToString();
 
-            System.util.RectangleJ rec = new System.util.RectangleJ(62, pdfHeight - 150, 112, 12);
-            PdfReader pdfReader = new PdfReader(fileName);
-            RenderFilter[] filter = { new RegionTextRenderFilter(rec) };
-            ITextExtractionStrategy textExtractionStrategy;
-            StringBuilder sb = new StringBuilder();
+        }
 
-           
-            for (int page = 1; page <= pdfReader.NumberOfPages; page++) {
-               textExtractionStrategy = new FilteredTextRenderListener( new LocationTextExtractionStrategy(), filter);
-                sb.AppendLine(PdfTextExtractor.GetTextFromPage(pdfReader, page, textExtractionStrategy));
-            }
+        private ExtractionType GetExtrationMethod() {
 
-            rtbExtractedText.Text += sb.ToString();
-
+            if (rbPDF.Checked)
+                return ExtractionType.PDF;
+            else if (rbImage.Checked)
+                return ExtractionType.Image;
+            else
+                return ExtractionType.PDF;
         }
     }
 }

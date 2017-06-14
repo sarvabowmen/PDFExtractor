@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PDFExtractor.Properties
+namespace TextExtractor.Properties
 {
 
 
